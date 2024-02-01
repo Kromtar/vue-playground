@@ -1,0 +1,7 @@
+{
+  "jobs": [
+    {"id": 1, "jobName": "Profe", "detail": "detalle"},
+    {"id": 2, "jobName": "Poli", "detail": "detalle"},
+    {"id": 3, "jobName": "Biólogo", "detail": "detalle"}
+  ]
+}

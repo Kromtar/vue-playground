@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: burlywood;
+            margin: 20px;
+            display: inline-block;
+        }
+        li.fav {
+            background: rgb(213, 176, 248);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>{{ number }}</p>
+
+        <button @click="add(10)">Add</button>
+        <button v-on:click="sub(10)">Sub</button>
+
+        <div v-if="showMsg">Over 50</div>
+        <div v-else>Below 50</div>
+
+        <div v-show="showMsg">Over 50, control by css</div>
+
+        <br>
+        <br>
+        <div class="box" v-on:mouseover="handleEvents($event, 'extra-data')">Mouse Over</div>
+        <div class="box" @mouseleave="handleEvents($event)">Mouse Leave</div>
+        <div class="box" @dblclick="handleEvents">Double Click</div>
+        <div class="box" @mousemove="handleMouseMove">Mouse Position {{ x }} {{ y }}</div>
+
+        <br>
+        <br>
+        <div>
+            <p>{{ books[0].titulo }}</p>
+        </div>
+        <div>
+            <ul>
+                <li v-for="book in books" :class="{ fav: book.fav }">
+                    <p> {{ book.titulo }} </p>
+                    {{ book.autor }}
+                    <img :src="book.img">
+                    <button @click="handleFav(book.id)">Change Fav</button>
+                    <button @click="handleFav2(book)">Change Fav segunda forma</button>
+                </li>
+            </ul>
+        </div>
+
+        <br>
+        <br>
+        <a v-bind:href="url">Es link es un bind</a>
+        <a :href="url">Es link es un bind también</a>
+
+        <br>
+        <br>
+        <div>
+            <h3>Solo books favoritos, usando valores computados:</h3>
+            <ul>
+                <li v-for="book in filteredBooks">
+                    <p> {{ book.titulo }} </p>
+                    {{ book.autor }}
+                    <img :src="book.img">
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
